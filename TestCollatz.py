@@ -53,6 +53,47 @@ class TestCollatz (TestCase):
         v = collatz_eval(900, 1000)
         self.assertEqual(v, 174)
 
+    def test_eval_5(self):
+        v = collatz_eval(-10, 100)
+        self.assertEqual(v, 174)
+
+    def test_read_1(self):
+        v = collatz_read("1 2")
+        self.assertEqual(v, [1,2])
+
+    def test_read_2(self):
+        v = collatz_read("1 2 3")
+        self.assertRaises(NameError)
+
+    def test_read_3(self):
+        v = collatz_read("1")
+        self.assertRaises(NameError)
+
+    def test_print_1(self):
+        v = collatz_print(sys.stdin, 1, 10, 20)
+        self.assertEqual(v, "1 10 20 \n")
+
+    def test_print_2(self):
+        v = collatz_print(sys.stdin, -, 10, 0)
+        self.assertRaises(NameError)
+
+    def test_print_3(self):
+        v = collatz_print(sys.stdin, 100, 200, 125)
+        self.assertRaises(NameError)
+
+    def test_solve_1(self):
+        v = collatz_solve(sys.stdin, 1, 10, 20)
+        self.assertRaises(NameError)
+
+    def test_solve_2(self):
+        v = collatz_solve(sys.stdin, 100, 200, 120)
+        self.assertRaises(NameError)
+
+    def test_print_3(self):
+        v = collatz_print(sys.stdin, 201, 210, 89)
+        self.assertRaises(NameError)
+
+
     # -----
     # print
     # -----
