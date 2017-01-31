@@ -10,6 +10,8 @@
 # collatz_read
 # ------------
 
+import sys
+import select
 
 def collatz_read(s):
     """
@@ -17,10 +19,17 @@ def collatz_read(s):
     s a string
     return a list of two ints, representing the beginning and end of a range, [i, j]
     """
+    v1 = 0
+    v2 = 0
     a = s.split()
+    try: 
+        v1 = int(a[0])
+        v2 = int(a[1])
+    except:
+        return ""
     #if(int(a[0])<0 || int(a[1])<0):
-	#assert False 
-    return [int(a[0]), int(a[1])]
+    #assert False 
+    return [v1, v2]
 
 # ------------
 # cycle_length
@@ -54,11 +63,16 @@ def collatz_eval(i, j):
     stop = 1000
     x = 0
 
-    for y in range(i,j+1):
-        x = cycle_length(y)
-        if (x> intMax):
-            intMax = x
-
+    if (j>=i):
+        for y in range(i,j+1):
+            x = cycle_length(y)
+            if (x> intMax):
+                intMax = x
+    else:
+        for y in range(j,i+1):
+            x = cycle_length(y)
+            if (x> intMax):
+                intMax = x
     return intMax
 
 # -------------
@@ -87,9 +101,10 @@ def collatz_solve(r, w):
     w a writer
     """
     for s in r:
-        i, j = collatz_read(s)
-        v = collatz_eval(i, j)
-        collatz_print(w, i, j, v)
+        if(len(s)>=2):
+            i, j = collatz_read(s)
+            v = collatz_eval(i, j)
+            collatz_print(w, i, j, v)
 
 #!/usr/bin/env python3
 
@@ -103,37 +118,10 @@ def collatz_solve(r, w):
 # imports
 # -------
 
-import sys
-
 # ----
 # main
 # ----
 
 if __name__ == "__main__":
     collatz_solve(sys.stdin, sys.stdout)
-
-""" #pragma: no cover
-% cat RunCollatz.in
-1 10
-100 200
-201 210
-900 1000
-
-
-
-% RunCollatz.py < RunCollatz.in > RunCollatz.out
-
-
-
-% cat RunCollatz.out
-1 10 1
-100 200 1
-201 210 1
-900 1000 1
-
-
-
-% pydoc3 -w Collatz
-# That creates the file Collatz.html
-"""
 
