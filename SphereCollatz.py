@@ -13,6 +13,10 @@
 import sys
 import select
 
+from datetime import datetime
+
+d = {1:1}
+
 def collatz_read(s):
     """
     read two ints
@@ -36,15 +40,19 @@ def collatz_read(s):
 # ------------
 
 def cycle_length (n) :
-    assert n > 0
-    c = 1
-    while n > 1 :
+    k = n
+    c = 0
+    if n in d:
+        return d[n]
+    elif(n>1):
         if (n % 2) == 0 :
             n = (n // 2)
+            c = cycle_length(n)
         else :
             n = (3 * n) + 1
-        c += 1
-    assert c > 0
+            c = cycle_length(n)
+    c+=1
+    d[k] = c
     return c
 
 # ------------
@@ -58,21 +66,21 @@ def collatz_eval(i, j):
     j the end       of the range, inclusive
     return the max cycle length of the range [i, j]
     """
+
+
     intMax = 0
-    start = 900
-    stop = 1000
     x = 0
 
-    if (j>=i):
-        for y in range(i,j+1):
-            x = cycle_length(y)
-            if (x> intMax):
-                intMax = x
-    else:
-        for y in range(j,i+1):
-            x = cycle_length(y)
-            if (x> intMax):
-                intMax = x
+    if (j<i):
+        y = i
+        i = j
+        j = y
+
+    for y in range(i,j+1):
+        x = cycle_length(y)
+        if (x> intMax):
+            intMax = x
+
     return intMax
 
 # -------------
