@@ -15,7 +15,7 @@ import select
 
 from datetime import datetime
 
-d = {1:1}
+d = {}
 
 def collatz_read(s):
     """

@@ -45,6 +45,13 @@ class TestCollatz (TestCase):
         self.assertEqual(i,  1)
         self.assertEqual(j, 1000)
 
+
+    def test_read_4(self):
+        s = "abc 1000\n"
+        i = collatz_read(s)
+        self.assertEqual(i,  "")
+
+
     # ----
     # eval
     # ----
@@ -80,6 +87,10 @@ class TestCollatz (TestCase):
     def test_cycle_length_3(self):
         v = cycle_length(29)
         self.assertEqual(v, 19)
+
+    def test_cycle_length_4(self):
+        v = cycle_length(67890)
+        self.assertEqual(v, 113)
     # -----
     # print
     # -----
@@ -111,18 +122,27 @@ class TestCollatz (TestCase):
             w.getvalue(), "1 10 20\n100 200 125\n201 210 89\n900 1000 174\n")
 
     def test_solve_2(self):
-        r = StringIO("368880 730937\n163608 918149\n788891 966872\n584624 992226\n")
+        r = StringIO(
+            "368880 730937\n163608 918149\n788891 966872\n584624 992226\n")
         w = StringIO()
         collatz_solve(r, w)
         self.assertEqual(
             w.getvalue(), "368880 730937 509\n163608 918149 525\n788891 966872 525\n584624 992226 525\n")
 
     def test_solve_3(self):
-        r = StringIO("654392 22276\n441920 790439\n91974 753424\n33400 778493\n")
+        r = StringIO(
+            "654392 22276\n441920 790439\n91974 753424\n33400 778493\n")
         w = StringIO()
         collatz_solve(r, w)
         self.assertEqual(
             w.getvalue(), "654392 22276 509\n441920 790439 509\n91974 753424 509\n33400 778493 509\n")
+
+    def test_solve_4(self):
+        r = StringIO("a")
+        w = StringIO()
+        collatz_solve(r, w)
+        self.assertEqual(
+            w.getvalue(), "")
 
 # ----
 # main

@@ -1,3 +1,66 @@
+commit e2e0211ef0a9acbc95ea5631af4abb17bd0cc872
+Author: Azaam Jamil <azaamjam@cs.utexas.edu>
+Date:   Wed Feb 1 18:20:20 2017 -0600
+
+    Added more Test Cases
+
+commit 0b1063b0a1e34aa7b524cd6aeeb635ca6abe3854
+Merge: 73e67f7 c5a6ace
+Author: Azaam Jamil <azaamjam@cs.utexas.edu>
+Date:   Tue Jan 31 19:21:29 2017 -0600
+
+    Merge branch 'master' of https://github.com/azaamjamil/cs329e-collatz
+    
+    I want to fix this
+
+commit 73e67f7334b09e77295dd0ce032cbdef127804c1
+Author: Azaam Jamil <azaamjam@cs.utexas.edu>
+Date:   Tue Jan 31 19:10:00 2017 -0600
+
+    Outputted into RunCollatz.out
+
+commit 7d02863ab9a37719eac36f07984fb649a392faa0
+Author: Azaam Jamil <azaamjamil@gmail.com>
+Date:   Tue Jan 31 18:48:18 2017 -0600
+
+    Removed a few files from dev
+
+commit c5a6aceb53d25803f0f26da4a3119a0492c80261
+Author: Azaam Jamil <azaamjamil@gmail.com>
+Date:   Tue Jan 31 18:47:29 2017 -0600
+
+    Removed a few files
+
+commit 23b65b4e6350f6ffd2e03eaa0932b7a7f94a56ef
+Author: Azaam Jamil <azaamjamil@gmail.com>
+Date:   Tue Jan 31 18:31:52 2017 -0600
+
+    Optimized and Completed
+
+commit 669e79f7d644404e90fddecd871c730f3f6d9160
+Author: Azaam Jamil <azaamjam@cs.utexas.edu>
+Date:   Mon Jan 30 19:07:12 2017 -0600
+
+    Fixed Exceptions for SPOJ
+
+commit a700952bf1e910c5c7a77aa0a85468902be05c56
+Author: Azaam Jamil <azaamjam@cs.utexas.edu>
+Date:   Mon Jan 30 17:48:05 2017 -0600
+
+    SphereCollatz
+
+commit 5c37d5d71ba39105dc2aba1441c1247051045ae5
+Author: Azaam Jamil <azaamjam@cs.utexas.edu>
+Date:   Mon Jan 30 16:01:43 2017 -0600
+
+    More Tests
+
+commit 696208356405ac4fc50377b28c8b68b2ef04b4be
+Author: Azaam Jamil <azaamjam@cs.utexas.edu>
+Date:   Fri Jan 27 16:35:07 2017 -0600
+
+    Fixed Unit Tests and now we get failures as expected
+
 commit afdcf9af654ef610f9e1a59694daa1765f0ebe27
 Author: Azaam Jamil <azaamjamil@gmail.com>
 Date:   Fri Jan 27 15:37:03 2017 -0600

@@ -15,7 +15,8 @@ import select
 
 from datetime import datetime
 
-d = {1:1}
+d = {}
+
 
 def collatz_read(s):
     """
@@ -26,32 +27,38 @@ def collatz_read(s):
     v1 = 0
     v2 = 0
     a = s.split()
-    try: 
+    try:
         v1 = int(a[0])
         v2 = int(a[1])
     except:
         return ""
-    #if(int(a[0])<0 || int(a[1])<0):
-    #assert False 
+    # if(int(a[0])<0 || int(a[1])<0):
+    # assert False
     return [v1, v2]
 
 # ------------
 # cycle_length
 # ------------
 
-def cycle_length (n) :
+
+def cycle_length(n):
+    """
+    returns the collatz of an integer
+    takes an integer
+    returns an integer that represents the collatz number of the input
+    """
     k = n
     c = 0
     if n in d:
         return d[n]
-    elif(n>1):
-        if (n % 2) == 0 :
+    elif(n > 1):
+        if (n % 2) == 0:
             n = (n // 2)
             c = cycle_length(n)
-        else :
+        else:
             n = (3 * n) + 1
             c = cycle_length(n)
-    c+=1
+    c += 1
     d[k] = c
     return c
 
@@ -67,18 +74,17 @@ def collatz_eval(i, j):
     return the max cycle length of the range [i, j]
     """
 
-
     intMax = 0
     x = 0
 
-    if (j<i):
+    if (j < i):
         y = i
         i = j
         j = y
 
-    for y in range(i,j+1):
+    for y in range(i, j + 1):
         x = cycle_length(y)
-        if (x> intMax):
+        if (x > intMax):
             intMax = x
 
     return intMax
@@ -109,10 +115,7 @@ def collatz_solve(r, w):
     w a writer
     """
     for s in r:
-        if(len(s)>=2):
+        if(len(s) >= 2):
             i, j = collatz_read(s)
             v = collatz_eval(i, j)
             collatz_print(w, i, j, v)
-
-
-
