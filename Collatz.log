@@ -1,3 +1,9 @@
+commit bafd570f5aa15a028c5b765ff0bd3d5fd9ab8bf0
+Author: Azaam Jamil <azaamjam@cs.utexas.edu>
+Date:   Wed Feb 1 19:09:54 2017 -0600
+
+    Completed coverage and added more Unit Tests
+
 commit e2e0211ef0a9acbc95ea5631af4abb17bd0cc872
 Author: Azaam Jamil <azaamjam@cs.utexas.edu>
 Date:   Wed Feb 1 18:20:20 2017 -0600
